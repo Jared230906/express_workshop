@@ -25,7 +25,6 @@
     "url": "git+https://github.com/Jared230906/express_workshop.git"
   },
   "dependencies": {
-    "body-parser": "^2.3.0",
     "express": "^4.22.3",
     "morgan": "^1.12.1",
     "mysql": "^2.18.1",
