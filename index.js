@@ -1,8 +1,14 @@
+//dependencias
 const morgan=require('morgan');
 const express= require('express');
 const app= express();
+//routers
 const pokemon=require('./routes/pokemon');
 const user=require('./routes/user');
+//middleware
+const auth=require('./middleware/auth'); 
+const notFound=require('./middleware/notFound');    
+const index=require('./middleware/index');
 
 app.use(morgan('dev'));
 app.use(express.json());
@@ -27,17 +33,13 @@ git commit -m "Descripción de los cambios"
 # 4. Subir a GitHub
 git push origin main
 */
-app.get("/", (req,res,next)=>{ 
-    return res.status(200).json({code:1, message:"Bienveido al pokedex"});
-
-});
-
-app.use("/pokemon", pokemon );
+app.get("/", index);
 app.use("/user", user);
+app.use(auth);
+app.use("/pokemon", pokemon );
 
-app.use((req,res,next)=>{
-    return res.status(404).json({code:404, message:"URL no encontrada"});
-});
+
+app.use(notFound);
 
 app.listen(process.env.PORT || 3000, ()=>{
     console.log("server is running...");
