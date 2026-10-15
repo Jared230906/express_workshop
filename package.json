@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "express": "^4.22.3",
+    "jsonwebtoken": "^9.0.3",
     "morgan": "^1.12.1",
     "mysql": "^2.18.1",
     "nodeman": "^1.1.2",
