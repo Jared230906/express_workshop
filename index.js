@@ -14,7 +14,17 @@ POST almacenar recursos/crear recursos
 PATCH es modificar un recurso una parte de un recurso 
 PUT modificar un recurso, que nosotros modifiquemos un recurso completo 
 DELETE es borrar un recurso     
+# 1. Ver qué archivos cambiaron
+git status
 
+# 2. Agregar los cambios (todos)
+git add .
+
+# 3. Crear el commit con un mensaje
+git commit -m "Descripción de los cambios"
+
+# 4. Subir a GitHub
+git push origin main
 */
 app.get("/", (req,res,next)=>{ 
     return res.status(200).json({code:1, message:"Bienveido al pokedex"});
